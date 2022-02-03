@@ -4,18 +4,22 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import dk.sdu.mmmi.cbse.main.Game;
 
+import java.util.LinkedList;
+
 public class Projectile extends SpaceObject {
 
     private float maxSpeed;
     private float acceleration;
     private float deceleration;
+    private boolean outOfBounds;
+    private static final LinkedList<Projectile> Projectiles = new LinkedList<>();
 
     public Projectile(float x, float y) {
 
         this.x = x;
         this.y = y;
 
-        maxSpeed = 300;
+        maxSpeed = 450;
         acceleration = 200;
         deceleration = 10;
 
@@ -25,20 +29,22 @@ public class Projectile extends SpaceObject {
         radians = 3.1415f / 2;
         rotationSpeed = 3;
 
+        outOfBounds = false;
+        Projectiles.add(this);
     }
 
     private void setShape() {
-        shapex[0] = x + MathUtils.cos(radians) * 8;
-        shapey[0] = y + MathUtils.sin(radians) * 8;
+        shapex[0] = x + MathUtils.cos(radians);
+        shapey[0] = y + MathUtils.sin(radians);
 
-        shapex[1] = x + MathUtils.cos(radians - 4 * 3.1415f / 5) * 8;
-        shapey[1] = y + MathUtils.sin(radians - 4 * 3.1145f / 5) * 8;
+        shapex[1] = x + MathUtils.cos(radians - 4 * 3.1415f / 5);
+        shapey[1] = y + MathUtils.sin(radians - 4 * 3.1145f / 5);
 
-        shapex[2] = x + MathUtils.cos(radians + 3.1415f) * 5;
-        shapey[2] = y + MathUtils.sin(radians + 3.1415f) * 5;
+        shapex[2] = x + MathUtils.cos(radians + 3.1415f) * 8;
+        shapey[2] = y + MathUtils.sin(radians + 3.1415f) * 8;
 
-        shapex[3] = x + MathUtils.cos(radians + 4 * 3.1415f / 5) * 8;
-        shapey[3] = y + MathUtils.sin(radians + 4 * 3.1415f / 5) * 8;
+        shapex[3] = x + MathUtils.cos(radians + 4 * 3.1415f / 5);
+        shapey[3] = y + MathUtils.sin(radians + 4 * 3.1415f / 5);
     }
 
     public void update(float dt) {
@@ -68,6 +74,13 @@ public class Projectile extends SpaceObject {
 
     }
 
+    @Override
+    protected void wrap() {
+        if (x < 0 || y < 0 || y > Game.HEIGHT || x > Game.WIDTH) {
+            outOfBounds = true;
+        }
+    }
+
     public void draw(ShapeRenderer sr) {
 
         sr.setColor(0.5f, 0.5f, 1, 1);
@@ -84,6 +97,32 @@ public class Projectile extends SpaceObject {
 
         sr.end();
 
+    }
+
+    public static void drawAll(ShapeRenderer sr) {
+        if (Projectiles.isEmpty()) {
+            return;
+        }
+
+        for (Projectile projectile : Projectiles) {
+            projectile.draw(sr);
+        }
+    }
+
+    public static void updateAll(float dt) {
+        if (Projectiles.isEmpty()) {
+            return;
+        }
+
+        LinkedList<Projectile> tempList = new LinkedList<>();
+        for (Projectile projectile : Projectiles) {
+            projectile.update(dt);
+            if (projectile.outOfBounds) {
+                tempList.add(projectile);
+            }
+        }
+
+        Projectiles.removeAll(tempList);
     }
 
 }

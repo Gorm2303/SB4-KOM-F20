@@ -26,7 +26,7 @@ public class Enemy extends SpaceObject {
         shapex = new float[4];
         shapey = new float[4];
 
-        radians = 3.1415f / 2;
+        radians = 3.1415f * 1.5f;
         rotationSpeed = 3;
 
         projectiles = new ArrayList<>();
@@ -49,8 +49,8 @@ public class Enemy extends SpaceObject {
     public void update(float dt) {
 
         // turning
-            //left
-            //right
+        //left
+        //right
         if (Math.random() < 0.5) {
             radians += rotationSpeed * dt;
         } else {
@@ -93,6 +93,11 @@ public class Enemy extends SpaceObject {
 
     public void shoot() {
         Projectile projectile = new Projectile(x, y);
+
+        projectile.dx = this.dx;
+        projectile.dy = this.dy;
+
+        projectile.radians = this.radians;
 
         projectiles.add(projectile);
     }

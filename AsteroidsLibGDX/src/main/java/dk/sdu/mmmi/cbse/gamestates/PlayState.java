@@ -8,6 +8,7 @@ import dk.sdu.mmmi.cbse.managers.GameKeys;
 import dk.sdu.mmmi.cbse.managers.GameStateManager;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class PlayState extends GameState {
 	
@@ -36,25 +37,15 @@ public class PlayState extends GameState {
 		
 		player.update(dt);
 		enemy.update(dt);
-
-		if (projectiles != null) {
-			for (Projectile projectile : projectiles) {
-				projectile.update(dt);
-			}
-		}
+		Projectile.updateAll(dt);
 	}
 	
 	public void draw() {
 		player.draw(sr);
 		enemy.draw(sr);
-
-		if (projectiles != null) {
-			for (Projectile projectile : projectiles) {
-				projectile.draw(sr);
-			}
-		}
+		Projectile.drawAll(sr);
 	}
-	
+
 	public void handleInput() {
 		player.setLeft(GameKeys.isDown(GameKeys.LEFT));
 		player.setRight(GameKeys.isDown(GameKeys.RIGHT));
