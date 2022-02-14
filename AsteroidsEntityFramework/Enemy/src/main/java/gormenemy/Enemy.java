@@ -1,4 +1,4 @@
-package gormEnemy;
+package gormenemy;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 

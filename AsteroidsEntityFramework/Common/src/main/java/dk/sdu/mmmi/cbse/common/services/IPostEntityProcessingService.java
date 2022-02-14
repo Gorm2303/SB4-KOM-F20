@@ -7,7 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
  *
  * @author jcs
  */
-public interface IPostEntityProcessingService  {
+public interface IPostEntityProcessingService {
         /**
          * @param gameData
          * @param world
