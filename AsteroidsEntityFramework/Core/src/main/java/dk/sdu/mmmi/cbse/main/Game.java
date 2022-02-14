@@ -13,6 +13,9 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
 import dk.sdu.mmmi.cbse.playersystem.PlayerControlSystem;
 import dk.sdu.mmmi.cbse.playersystem.PlayerPlugin;
+import gormEnemy.EnemyControlSystem;
+import gormEnemy.EnemyPlugin;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +47,16 @@ public class Game
         );
 
         IGamePluginService playerPlugin = new PlayerPlugin();
+        IGamePluginService enemyPlugin = new EnemyPlugin();
 
         IEntityProcessingService playerProcess = new PlayerControlSystem();
+        IEntityProcessingService enemyProcess = new EnemyControlSystem();
+
         entityPlugins.add(playerPlugin);
         entityProcessors.add(playerProcess);
+        entityPlugins.add(enemyPlugin);
+        entityProcessors.add(enemyProcess);
+
         // Lookup all Game Plugins using ServiceLoader
         for (IGamePluginService iGamePlugin : entityPlugins) {
             iGamePlugin.start(gameData, world);

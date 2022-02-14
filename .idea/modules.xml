@@ -16,7 +16,6 @@
       <module fileurl="file://$PROJECT_DIR$/AsteroidsJava9/Collision/Collision.iml" filepath="$PROJECT_DIR$/AsteroidsJava9/Collision/Collision.iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsServiceLoader/Collision/Collision (1).iml" filepath="$PROJECT_DIR$/AsteroidsServiceLoader/Collision/Collision (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/Collision/Collision (2).iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/Collision/Collision (2).iml" />
-      <module fileurl="file://$PROJECT_DIR$/AsteroidsEntityFramework/Common/Common.iml" filepath="$PROJECT_DIR$/AsteroidsEntityFramework/Common/Common.iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/Common/Common (1).iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/Common/Common (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/CommonAsteroids/CommonAsteroids.iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/CommonAsteroids/CommonAsteroids.iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/CommonBullet/CommonBullet.iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/CommonBullet/CommonBullet.iml" />
@@ -27,7 +26,6 @@
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/Core/Core (2) (dk.sdu.mmmi.cbse).iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/Core/Core (2) (dk.sdu.mmmi.cbse).iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceLoaderExample/DictionaryDemo/DictionaryDemo.iml" filepath="$PROJECT_DIR$/ServiceLoaderExample/DictionaryDemo/DictionaryDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceLoaderExample/DictionaryServiceProvider/DictionaryServiceProvider.iml" filepath="$PROJECT_DIR$/ServiceLoaderExample/DictionaryServiceProvider/DictionaryServiceProvider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AsteroidsEntityFramework/Enemy/Enemy.iml" filepath="$PROJECT_DIR$/AsteroidsEntityFramework/Enemy/Enemy.iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/Enemy/Enemy (1).iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/Enemy/Enemy (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceLoaderExample/ExtendedDictionary/ExtendedDictionary.iml" filepath="$PROJECT_DIR$/ServiceLoaderExample/ExtendedDictionary/ExtendedDictionary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceLoaderExample/GeneralDictionary/GeneralDictionary.iml" filepath="$PROJECT_DIR$/ServiceLoaderExample/GeneralDictionary/GeneralDictionary.iml" />
@@ -46,7 +44,6 @@
       <module fileurl="file://$PROJECT_DIR$/PaxAsteroids/OSGiLaser/OSGiLaser.iml" filepath="$PROJECT_DIR$/PaxAsteroids/OSGiLaser/OSGiLaser.iml" />
       <module fileurl="file://$PROJECT_DIR$/PaxAsteroids/OSGiLibGDX/OSGiLibGDX.iml" filepath="$PROJECT_DIR$/PaxAsteroids/OSGiLibGDX/OSGiLibGDX.iml" />
       <module fileurl="file://$PROJECT_DIR$/PaxAsteroids/PaxAteroids.iml" filepath="$PROJECT_DIR$/PaxAsteroids/PaxAteroids.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AsteroidsEntityFramework/Player/Player.iml" filepath="$PROJECT_DIR$/AsteroidsEntityFramework/Player/Player.iml" />
       <module fileurl="file://$PROJECT_DIR$/AsteroidsNetbeansModules/Player/Player (1).iml" filepath="$PROJECT_DIR$/AsteroidsNetbeansModules/Player/Player (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SB4-KOM-F20.iml" filepath="$PROJECT_DIR$/.idea/SB4-KOM-F20.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceLoaderExample/ServiceLoaderExample.iml" filepath="$PROJECT_DIR$/ServiceLoaderExample/ServiceLoaderExample.iml" />
