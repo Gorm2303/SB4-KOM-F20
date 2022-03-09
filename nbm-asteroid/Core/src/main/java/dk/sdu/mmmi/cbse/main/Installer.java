@@ -5,11 +5,8 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import org.openide.modules.ModuleInstall;
 
 public class Installer extends ModuleInstall {
-
-	private static Game g;
-
-	@Override
-	public void restored() {
+	
+	public static void main(String[] args) {
 		
 		LwjglApplicationConfiguration cfg =
 			new LwjglApplicationConfiguration();
