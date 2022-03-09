@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.main;
+package dk.sdu.mmmi.cbse.core.main;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -11,26 +11,27 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.util.SPILocator;
-import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
-import java.util.ArrayList;
+import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+import org.openide.util.Lookup;
+import org.openide.util.LookupEvent;
+import org.openide.util.LookupListener;
+
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Game
-        implements ApplicationListener {
+public class Game implements ApplicationListener {
 
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
-
+    private final Lookup lookup = Lookup.getDefault();
     private final GameData gameData = new GameData();
-    private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
-    private List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
+    private List<IGamePluginService> gamePlugins = new CopyOnWriteArrayList<>();
     private World world = new World();
+    private Lookup.Result<IGamePluginService> result;
 
     @Override
     public void create() {
-
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
@@ -44,9 +45,14 @@ public class Game
                 new GameInputProcessor(gameData)
         );
 
+        result = lookup.lookupResult(IGamePluginService.class);
+        result.addLookupListener(lookupListener);
+        result.allItems();
+
         // Lookup all Game Plugins using ServiceLoader
-        for (IGamePluginService iGamePlugin : getPluginServices()) {
+        for (IGamePluginService iGamePlugin : result.allInstances()) {
             iGamePlugin.start(gameData, world);
+            gamePlugins.add(iGamePlugin);
         }
     }
 
@@ -58,12 +64,12 @@ public class Game
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         gameData.setDelta(Gdx.graphics.getDeltaTime());
+        gameData.getKeys().update();
 
         update();
 
         draw();
 
-        gameData.getKeys().update();
     }
 
     private void update() {
@@ -113,15 +119,36 @@ public class Game
     public void dispose() {
     }
 
-    private Collection<? extends IGamePluginService> getPluginServices() {
-        return SPILocator.locateAll(IGamePluginService.class);
+    private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
+        return lookup.lookupAll(IEntityProcessingService.class);
     }
 
-    private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
-        return SPILocator.locateAll(IEntityProcessingService.class);
+    private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
+        return lookup.lookupAll(IPostEntityProcessingService.class);
     }
-    
-       private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
-        return SPILocator.locateAll(IPostEntityProcessingService.class);
-    }
+
+    private final LookupListener lookupListener = new LookupListener() {
+        @Override
+        public void resultChanged(LookupEvent le) {
+
+            Collection<? extends IGamePluginService> updated = result.allInstances();
+
+            for (IGamePluginService us : updated) {
+                // Newly installed modules
+                if (!gamePlugins.contains(us)) {
+                    us.start(gameData, world);
+                    gamePlugins.add(us);
+                }
+            }
+
+            // Stop and remove module
+            for (IGamePluginService gs : gamePlugins) {
+                if (!updated.contains(gs)) {
+                    gs.stop(gameData, world);
+                    gamePlugins.remove(gs);
+                }
+            }
+        }
+
+    };
 }

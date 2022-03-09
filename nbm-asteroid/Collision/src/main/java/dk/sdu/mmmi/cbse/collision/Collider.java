@@ -11,13 +11,13 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-//import org.openide.util.lookup.ServiceProvider;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Phillip O
  */
-//@ServiceProvider(service = IPostEntityProcessingService.class)
+@ServiceProvider(service = IPostEntityProcessingService.class)
 public class Collider implements IPostEntityProcessingService {
 
     @Override
@@ -27,7 +27,6 @@ public class Collider implements IPostEntityProcessingService {
             for (Entity collisionDetection : world.getEntities()) {
                 // get life parts on all entities
                 LifePart entityLife = entity.getPart(LifePart.class);
-                LifePart collisionLife = collisionDetection.getPart(LifePart.class);
 
                 // if the two entities are identical, skip the iteration
                 if (entity.getID().equals(collisionDetection.getID())) {
@@ -35,19 +34,13 @@ public class Collider implements IPostEntityProcessingService {
 
                     // remove entities with zero in expiration
                 }
-                if (entityLife.getExpiration() <= 0) {
-                    world.removeEntity(entity);
-                    // if collisioner expiration is zero or beloq, remove.
-                    if (collisionLife.getExpiration() <= 0) {
-                        world.removeEntity(collisionDetection);
-                    }
-                }
 
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
                     // if entity has been hit, and should have its life reduced
                     if (entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
+                        entityLife.setIsHit(true);
                         // if entity is out of life - remove
                         if (entityLife.getLife() <= 0) {
                             world.removeEntity(entity);

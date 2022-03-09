@@ -1,6 +1,7 @@
 package dk.sdu.mmmi.cbse.common.data;
 
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
+
 import java.io.Serializable;
 import java.util.Map;
 import java.util.UUID;
@@ -13,14 +14,10 @@ public class Entity implements Serializable {
     private float[] shapeX = new float[4];
     private float[] shapeY = new float[4];
     private float radius;
-    private float boundingCircleX;
-    private float boundingCircleY;
-
     private Map<Class, EntityPart> parts;
 
     public Entity() {
         parts = new ConcurrentHashMap<>();
-
     }
 
     public void add(EntityPart part) {
@@ -61,33 +58,6 @@ public class Entity implements Serializable {
 
     public void setShapeY(float[] shapeY) {
         this.shapeY = shapeY;
-    }
-
-    public float getBoundingCircleX() {
-        return boundingCircleX;
-    }
-
-    public void setBoundingCircleX(float boundingCircleX) {
-        this.boundingCircleX = boundingCircleX;
-    }
-
-    public float getBoundingCircleY() {
-        return boundingCircleY;
-    }
-
-    public void setBoundingCircleY(float boundingCircleY) {
-        this.boundingCircleY = boundingCircleY;
-    }
-    
-    
-    public boolean checkCollision(Entity entity) {
-        float dx = this.boundingCircleX - entity.boundingCircleX;
-        float dy = this.boundingCircleY - entity.boundingCircleY;
-        float distance = (float) Math.sqrt(dx * dx + dy * dy);
-        if (distance < this.radius + entity.radius) {
-            return true;
-        }
-        return false;
     }
 
 }

@@ -9,6 +9,9 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import org.openide.util.lookup.ServiceProvider;
+import org.openide.util.lookup.ServiceProviders;
+
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
@@ -17,6 +20,8 @@ import static java.lang.Math.sqrt;
  *
  * @author jcs
  */
+@ServiceProviders(value = {
+        @ServiceProvider(service = IEntityProcessingService.class),})
 public class PlayerControlSystem implements IEntityProcessingService {
 
     @Override

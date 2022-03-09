@@ -8,7 +8,11 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import org.openide.util.lookup.ServiceProvider;
+import org.openide.util.lookup.ServiceProviders;
 
+@ServiceProviders(value = {
+        @ServiceProvider(service = IGamePluginService.class)})
 public class EnemyPlugin implements IGamePluginService {
 
     private Entity enemy;
@@ -38,7 +42,7 @@ public class EnemyPlugin implements IGamePluginService {
 
         enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemyShip.add(new PositionPart(x, y, radians));
-        enemyShip.add(new LifePart(6,69));
+        enemyShip.add(new LifePart(6));
 
 
         return enemyShip;
