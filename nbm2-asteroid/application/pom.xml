@@ -54,7 +54,7 @@
         </dependency>
         -->
         
-        <dependency>
+<!--        <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-modules-autoupdate-ui</artifactId>
             <version>${netbeans.version}</version>
@@ -63,13 +63,12 @@
             <groupId>org.netbeans.modules</groupId>
             <artifactId>org-netbeans-core-windows</artifactId>
             <version>${netbeans.version}</version>
-        </dependency>
-        
-        <!--<dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>SilentUpdate</artifactId>
-            <version>${project.version}</version>
         </dependency>-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SilentUpdate2</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

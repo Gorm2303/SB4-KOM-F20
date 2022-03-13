@@ -69,11 +69,11 @@
         <module>Player</module>
         <module>Enemy</module>
         <module>Collision</module>
-        <!--<module>SilentUpdate</module> -->
+        <module>SilentUpdate2</module>
     </modules>
 
     <properties>
-        <netbeans.version>RELEASE110</netbeans.version>
+        <netbeans.version>RELEASE112</netbeans.version>
         <brandingToken>nbmasteroid</brandingToken>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
