@@ -69,7 +69,7 @@
         <module>Player</module>
         <module>Enemy</module>
         <module>Collision</module>
-        <module>SilentUpdate</module>
+        <!--<module>SilentUpdate</module> -->
     </modules>
 
     <properties>
@@ -77,4 +77,5 @@
         <brandingToken>nbmasteroid</brandingToken>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
 </project>
