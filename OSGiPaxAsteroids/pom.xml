@@ -125,6 +125,10 @@
           
     
     <module>CommonAsteroid</module>
+    
+    <module>Enemy</module>
+          
+    <module>CommonEnemy</module>
       
   </modules>
         
