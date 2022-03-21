@@ -30,7 +30,7 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>dk.sdu.mmmi.build</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>OSGiCommon</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -23,7 +23,7 @@
       
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.sdu.mmmi</groupId>
-  <artifactId>PaxAteroids</artifactId>
+  <artifactId>PaxAsteroids</artifactId>
   <version>1.0-SNAPSHOT</version>
       
   <name>PaxAsteroids (OSGi project)</name>
@@ -74,7 +74,7 @@
                     -->
             <provision>
                 <param>--platform=felix</param>
-                <param>--vmOptions=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</param>
+                <!--<param>\-\-vmOptions=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</param>-->
             </provision>
         </configuration>
         <executions>

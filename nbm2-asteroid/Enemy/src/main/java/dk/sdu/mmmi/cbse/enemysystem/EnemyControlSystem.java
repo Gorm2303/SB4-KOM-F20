@@ -16,12 +16,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity enemy : world.getEntities(Enemy.class)) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
-
-            boolean moveSideWays = Math.random() < 0.5;
-            movingPart.setLeft(moveSideWays);
-            movingPart.setRight(!moveSideWays);
-            movingPart.setUp(Math.random() < 0.5);
-
+            
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
 

@@ -50,9 +50,9 @@
     
 </module>
 
-<module codenamebase="dk.sdu.mmmi.cbse.Enemy" distribution="Enemy-1.0-SNAPSHOT.nbm" downloadsize="6747" license="CEB166E5" needsrestart="false" releasedate="2022/03/13" targetcluster="nbmasteroid">
+<module codenamebase="dk.sdu.mmmi.cbse.Enemy" distribution="Enemy-1.0-SNAPSHOT.nbm" downloadsize="0" license="CEB166E5" needsrestart="false" releasedate="2022/03/13" targetcluster="nbmasteroid">
     <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.Enemy" OpenIDE-Module-Display-Category="dk.sdu.mmmi.cbse" OpenIDE-Module-Implementation-Version="1.0-20220313" OpenIDE-Module-Long-Description="&lt;undefined&gt;" OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.31.1, dk.sdu.mmmi.cbse.Common &gt; 1.0, dk.sdu.mmmi.cbse.CommonEnemy &gt; 1.0" OpenIDE-Module-Name="Enemy" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="&lt;undefined&gt;" OpenIDE-Module-Specification-Version="1.0"/>
-
+    
 </module>
 
 <module codenamebase="org.openide.filesystems" distribution="org-openide-filesystems-RELEASE110.nbm" downloadsize="145089" homepage="http://www.netbeans.org/" license="B2B74E56" moduleauthor="" needsrestart="false" releasedate="2019/04/17" targetcluster="platform">
