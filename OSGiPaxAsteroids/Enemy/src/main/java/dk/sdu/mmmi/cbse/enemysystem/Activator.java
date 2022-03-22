@@ -4,9 +4,8 @@
  */
 package dk.sdu.mmmi.cbse.enemysystem;
 
-import dk.sdu.mmmi.cbse.common.enemy.Enemy;
+import dk.sdu.mmmi.cbse.commonenemy.EnemySPI;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -16,15 +15,16 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator implements BundleActivator {
     
+    @Override
     public void start(BundleContext context) throws Exception {
         //TODO add activation code here
         
-        EnemyControlSystem ecs = new EnemyControlSystem();
-        context.registerService(IEntityProcessingService.class, ecs, null);
-        context.registerService(Enemy.class, ecs, null);
-
+        EnemySystem es = new EnemySystem();
+        context.registerService(IEntityProcessingService.class, es, null);
+        context.registerService(EnemySPI.class, es, null);
     }
     
+    @Override
     public void stop(BundleContext context) throws Exception {
         //TODO add deactivation code here
     }
