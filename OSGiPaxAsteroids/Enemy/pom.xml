@@ -11,6 +11,7 @@
   
   <artifactId>Enemy</artifactId>
   <packaging>bundle</packaging>
+  <name>Enemy</name>
   
   <properties>
     <bundle.namespace>dk.sdu.mmmi.cbse.enemy</bundle.namespace>
@@ -22,11 +23,6 @@
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
