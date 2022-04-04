@@ -69,6 +69,7 @@
         <module>Player</module>
         <module>Enemy</module>
         <module>Collision</module>
+        <module>CommonPlayer</module>
     </modules>
 
     <properties>
