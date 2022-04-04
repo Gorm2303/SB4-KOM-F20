@@ -70,6 +70,7 @@
         <module>Enemy</module>
         <module>Collision</module>
         <module>SilentUpdate2</module>
+        <module>CommonPlayer</module>
     </modules>
 
     <properties>
