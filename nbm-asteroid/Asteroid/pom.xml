@@ -54,11 +54,6 @@
         </dependency>
         <dependency>
             <groupId>dk.sdu.mmmi.cbse</groupId>
-            <artifactId>CommonEnemy</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>dk.sdu.mmmi.cbse</groupId>
             <artifactId>CommonAsteroid</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
