@@ -16,8 +16,8 @@
   
   <properties>
     <libGDX.version>1.5.0</libGDX.version>
-    <bundle.namespace>dk.sdu.mmmi.cbse.libgdx</bundle.namespace>
-    <bundle.symbolicName>dk.sdu.mmmi.cbse.LibGDX</bundle.symbolicName>
+    <bundle.symbolicName>dk.sdu.mmmi.cbse.osgipaxasteroids.libgdx</bundle.symbolicName>
+    <bundle.namespace>dk.sdu.mmmi.cbse.osgipaxasteroids</bundle.namespace>
   </properties>
   
   <dependencies>

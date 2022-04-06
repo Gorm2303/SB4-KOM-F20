@@ -6,3 +6,4 @@
 *.jar
 /*/runner/
 /JavaModularAsteroids/nbproject/private/
+/nbm2-asteroid/Player/nbproject/
