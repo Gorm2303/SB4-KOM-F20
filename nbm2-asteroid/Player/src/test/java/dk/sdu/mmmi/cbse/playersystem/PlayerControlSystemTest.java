@@ -24,9 +24,9 @@ import static org.junit.Assert.*;
 public class PlayerControlSystemTest {
     private static GameData gameData;
     private static World world;
-    private static Entity player;
-    private static PositionPart position;
-    private static MovingPart movement;
+    private Entity player;
+    private PositionPart position;
+    private MovingPart movement;
             
     public PlayerControlSystemTest() {
     }
@@ -36,15 +36,13 @@ public class PlayerControlSystemTest {
         System.out.println("Before All");
         gameData = new GameData();
         world = new World();
-        player = new Player();
-        position = new PositionPart(0,0,0);
-        movement = new MovingPart(0,12,300,2);
+
         
         gameData.setDisplayHeight(500);
         gameData.setDisplayWidth(500);
-        player.add(position);
-        player.add(movement);
-        world.addEntity(player);
+        gameData.setDelta(0);
+
+        
     }
     
     @AfterAll
@@ -53,6 +51,13 @@ public class PlayerControlSystemTest {
     
     @BeforeEach
     public void setUp() {
+        player = new Player();
+        position = new PositionPart(0,0,0);
+        movement = new MovingPart(0,12,300,2);
+        
+        player.add(position);
+        player.add(movement);
+        world.addEntity(player);
     }
     
     @AfterEach
@@ -66,28 +71,19 @@ public class PlayerControlSystemTest {
     public void testPlayerMovement() {
         System.out.println("Testing PlayerControlSystem process");
         MovingPart movingPart = player.getPart(MovingPart.class);
-        gameData.setDelta(0);
         
         System.out.println("movingpart: " + movingPart.getDx() + " " + movingPart.getDy());
         
-        assertEquals(0, movingPart.getDx(), 0);
-        assertEquals(0, movingPart.getDy(), 0);
+        assertEquals(0, movingPart.getDx(), 0); // Test that player is in coordinate (0,0)
+        assertEquals(0, movingPart.getDy(), 0); 
         
-        gameData.setDelta(1);
-        movingPart.setUp(true);
-        //PlayerControlSystem instance = new PlayerControlSystem();
-        //instance.process(gameData, world);
-        movingPart.process(gameData, player);
-        movingPart.setUp(false);
+        gameData.setDelta(1);                   // 1 unit of time has went by
+        movingPart.setUp(true);                 // Player wants to move forward
+        movingPart.process(gameData, player);   // Process the input of the player
         
         System.out.println("movingpart: " + movingPart.getDx() + " " + movingPart.getDy());
         
-        assertTrue(movingPart.getDx() > 0 || movingPart.getDy() > 0);
-
-        
-        // TODO review the generated test code and remove the default call to fail.
-        
-
+        assertTrue(movingPart.getDx() > 0 || movingPart.getDy() > 0); // Test succeeds if player has left coordinate (0,0)
     }
     
 }
