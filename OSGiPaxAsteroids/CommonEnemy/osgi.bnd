@@ -1,1 +1,2 @@
 Export-Package: dk.sdu.mmmi.cbse.commonenemy
+Import-Package: dk.sdu.mmmi.cbse.common.*

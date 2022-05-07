@@ -1,4 +1,3 @@
 Bundle-SymbolicName: Enemy
 Bundle-Activator: dk.sdu.mmmi.cbse.enemysystem.Activator
-Bundle-ActivationPolicy: lazy
 

@@ -41,6 +41,7 @@
             <!--
              | export wrapped contents: don't use Export-Package:* as this bundles everything on the classpath
             -->
+            <Import-Package>!com.apple.eio,!com.sun.*,!org.objectweb.*,*</Import-Package>
             <_exportcontents>*</_exportcontents>
             <Private-Package>!*</Private-Package>
             <!--
