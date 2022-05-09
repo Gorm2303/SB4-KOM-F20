@@ -13,12 +13,12 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class GameBean
         implements ApplicationListener {
 
@@ -28,7 +28,7 @@ public class GameBean
     private final GameData gameData = new GameData();
     @Autowired
     private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
-    //@Autowired
+    @Autowired
     private List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
     @Autowired
     private List<IGamePluginService> gamePlugins = new ArrayList<>();

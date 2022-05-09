@@ -16,12 +16,14 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import java.util.Random;
+import org.springframework.stereotype.Service;
 //import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Phillip O
  */
+@Service
 public class AsteroidSplitter implements IEntityProcessingService {
 
     Random rnd = new Random();
@@ -58,7 +60,7 @@ public class AsteroidSplitter implements IEntityProcessingService {
         Entity asteroid = new Asteroid(SMALL);
         asteroid.add(new MovingPart(0, speed, speed, 0));
         asteroid.add(new PositionPart(x + rnd.nextInt(50), y+rnd.nextInt(50), radians));
-        asteroid.add(new LifePart(2, 69));
+        asteroid.add(new LifePart(2));
         asteroid.add(new SplitterPart());
         asteroid.setRadius(5);
 
@@ -73,7 +75,7 @@ public class AsteroidSplitter implements IEntityProcessingService {
 
         asteroid.add(new MovingPart(0, speed, speed, 0));
         asteroid.add(new PositionPart(x + rnd.nextInt(50), y + rnd.nextInt(50), radians));
-        asteroid.add(new LifePart(4, 69));
+        asteroid.add(new LifePart(4));
         asteroid.add(new SplitterPart());
         asteroid.setRadius(10);
 

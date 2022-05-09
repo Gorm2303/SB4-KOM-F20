@@ -11,13 +11,13 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-//import org.openide.util.lookup.ServiceProvider;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Phillip O
  */
-//@ServiceProvider(service = IPostEntityProcessingService.class)
+@Service
 public class Collider implements IPostEntityProcessingService {
 
     @Override

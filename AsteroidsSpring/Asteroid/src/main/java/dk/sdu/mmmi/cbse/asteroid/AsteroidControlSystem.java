@@ -13,12 +13,14 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import java.util.Random;
+import org.springframework.stereotype.Service;
 
 
 /**
  *
  * @author Phillip O
  */
+@Service
 public class AsteroidControlSystem implements IEntityProcessingService {
 
     int numPoints = 6;

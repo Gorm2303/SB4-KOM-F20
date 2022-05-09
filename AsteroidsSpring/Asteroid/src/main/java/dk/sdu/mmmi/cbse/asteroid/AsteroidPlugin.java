@@ -10,7 +10,9 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AsteroidPlugin
   implements IGamePluginService, IPostEntityProcessingService
 {
@@ -41,7 +43,7 @@ public class AsteroidPlugin
 
         asteroid.add(new MovingPart(0, speed, speed, 0));
         asteroid.add(new PositionPart(x, y, radians));
-        asteroid.add(new LifePart(6, 69));
+        asteroid.add(new LifePart(6));
         asteroid.add(new SplitterPart());
         asteroid.setRadius(15);
 
